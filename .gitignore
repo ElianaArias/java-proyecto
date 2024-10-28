@@ -1,5 +1,7 @@
-<<<<<<< HEAD
+HEAD
 target/
+target/
+!target/classes/META-INF/maven/com.coderhouse/prueba01/pom.properties
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -16,6 +18,6 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
-=======
+
 /.metadata/
->>>>>>> c573509 (prueba01)
+c573509 (prueba01)
