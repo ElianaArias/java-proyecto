@@ -1,5 +1,7 @@
 package com.facturacion.repositories;
 
-public interface VentaDetalleRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
-}
+import com.facturacion.models.VentaDetalle;
+
+public interface VentaDetalleRepository extends JpaRepository<VentaDetalle, Long>{}

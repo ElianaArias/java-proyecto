@@ -1,5 +1,9 @@
 package com.facturacion.repositories;
 
-public interface ProductoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
-}
+import com.facturacion.models.Producto;
+
+public interface ProductoRepository extends JpaRepository<Producto, Long>{}
+
+
