@@ -1,7 +1,8 @@
 package com.facturacion.models;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -11,8 +12,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Cliente")
 public class Cliente {
 
 	
@@ -34,11 +37,27 @@ public class Cliente {
 			fetch = FetchType.EAGER
 			) 
 	
-	private List<Venta> ventas = new ArrayList<>();		//como resultado voy a ver una lista de ventas relacionadas con los clientes
-
+	@JsonIgnore //para que no se me haga un bucle infinito en postman
+	private List<Venta> ventas;		//como resultado voy a ver una lista de ventas relacionadas con los clientes
 
 	
 	
+	//genero constructores
+	public Cliente() {
+		super();
+	}
+	
+	
+	public Cliente(String nombre, String apellido, int dni, String mail) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+		this.mail = mail;
+	}
+
+
+
 	//getters y setters
 	public Long getId() {
 		return id;
@@ -103,12 +122,10 @@ public class Cliente {
 	//toString
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", mail=" + mail
-				+ ", ventas=" + ventas + "]";
+		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + 
+				", mail=" + mail + "]";
 	}
 
 	
-	
-
 }
 

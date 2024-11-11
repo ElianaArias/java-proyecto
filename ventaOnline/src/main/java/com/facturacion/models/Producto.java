@@ -1,8 +1,8 @@
 package com.facturacion.models;
 
-
-import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,8 +11,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Producto")
 public class Producto {
 
 	
@@ -31,10 +33,26 @@ public class Producto {
 			fetch = FetchType.EAGER
 			)
 	
-	private List<VentaDetalle> detallesVenta = new ArrayList<>(); //me va a devolver una lista con los detalles de cada producto
+	@JsonIgnore //para que no se me haga un bucle infinito en postman
+	private List<VentaDetalle> ventaDetalles; //me va a devolver una lista con los detalles de cada producto
 
 	
+	//genero constructores
+	public Producto() {
+		super();
+	}
 	
+	
+	public Producto(String descripcion, String codigo, int stock, double precio) {
+		super();
+		this.descripcion = descripcion;
+		this.codigo = codigo;
+		this.stock = stock;
+		this.precio = precio;
+	}
+
+
+
 	//getters y setters
 	public Long getId() {
 		return id;
@@ -76,12 +94,12 @@ public class Producto {
 		this.precio = precio;
 	}
 
-	public List<VentaDetalle> getDetallesVenta() {
-		return detallesVenta;
+	public List<VentaDetalle> getVentaDetalles() {
+		return ventaDetalles;
 	}
 
-	public void setDetallesVenta(List<VentaDetalle> detallesVenta) {
-		this.detallesVenta = detallesVenta;
+	public void setVentaDetalles(List<VentaDetalle> ventaDetalles) {
+		this.ventaDetalles = ventaDetalles;
 	}
 
 	
@@ -90,7 +108,7 @@ public class Producto {
 	@Override
 	public String toString() {
 		return "Producto [id=" + id + ", descripcion=" + descripcion + ", codigo=" + codigo + ", stock=" + stock
-				+ ", precio=" + precio + ", detallesVenta=" + detallesVenta + "]";
+				+ ", precio=" + precio + "]"; //no dejo detallesVenta para que no se haga un bucle infinito
 	}
 
 		
