@@ -22,8 +22,8 @@ public class Producto {
 	@GeneratedValue (strategy = GenerationType.IDENTITY) //autoincremental
 	private Long id;
 	@Column(nullable = false) 							//esto es para que el nombre no sea nulo. si no cargo algo, no se crea la tabla
-	private String descripcion;
-	private String codigo;
+	private String nombre;
+	private String marca;
 	private int stock;
 	private double precio;
 	
@@ -43,10 +43,10 @@ public class Producto {
 	}
 	
 	
-	public Producto(String descripcion, String codigo, int stock, double precio) {
+	public Producto(String nombre, String marca, int stock, double precio) {
 		super();
-		this.descripcion = descripcion;
-		this.codigo = codigo;
+		this.nombre = nombre;
+		this.marca = marca;
 		this.stock = stock;
 		this.precio = precio;
 	}
@@ -62,20 +62,20 @@ public class Producto {
 		this.id = id;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	public String getCodigo() {
-		return codigo;
+	public String getMarca() {
+		return marca;
 	}
 
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
 
 	public int getStock() {
@@ -107,7 +107,7 @@ public class Producto {
 	//toString
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", descripcion=" + descripcion + ", codigo=" + codigo + ", stock=" + stock
+		return "Producto [id=" + id + ", nombre=" + nombre + ", marca=" + marca + ", stock=" + stock
 				+ ", precio=" + precio + "]"; //no dejo detallesVenta para que no se haga un bucle infinito
 	}
 	
