@@ -105,6 +105,4 @@ public class Venta {
 				+"]";//elimino ventaDetalle para que no se me haga un bucle infinito
 	}
 
-	
-
 }

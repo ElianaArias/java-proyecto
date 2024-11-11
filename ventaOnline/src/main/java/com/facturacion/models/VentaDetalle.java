@@ -95,7 +95,5 @@ public class VentaDetalle {
 		return "VentaDetalle [id=" + id + ", venta=" + venta.getId() + ", producto=" + producto.getId() + ", cantidad=" + cantidad
 				+ ", precio=" + precio + "]";
 	}
-	
-	
-	
+
 }

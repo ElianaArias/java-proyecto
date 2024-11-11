@@ -110,7 +110,5 @@ public class Producto {
 		return "Producto [id=" + id + ", descripcion=" + descripcion + ", codigo=" + codigo + ", stock=" + stock
 				+ ", precio=" + precio + "]"; //no dejo detallesVenta para que no se haga un bucle infinito
 	}
-
-		
 	
 }

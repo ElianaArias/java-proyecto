@@ -125,7 +125,5 @@ public class Cliente {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + 
 				", mail=" + mail + "]";
 	}
-
 	
 }
-
