@@ -1,5 +1,6 @@
 package com.facturacion.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -38,7 +39,7 @@ public class Cliente {
 			) 
 	
 	@JsonIgnore //para que no se me haga un bucle infinito en postman
-	private List<Venta> ventas;		//como resultado voy a ver una lista de ventas relacionadas con los clientes
+	private List<Venta> ventas = new ArrayList<>();		//como resultado voy a ver una lista de ventas relacionadas con los clientes
 
 	
 	

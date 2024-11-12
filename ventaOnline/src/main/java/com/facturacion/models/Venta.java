@@ -1,6 +1,7 @@
 package com.facturacion.models;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -37,7 +38,7 @@ public class Venta {
 			fetch = FetchType.EAGER
 			)
 	@JsonIgnore//lo ignoro para que no se me haga un bucle infinito
-	private List<VentaDetalle> ventaDetalles;
+	private List<VentaDetalle> ventaDetalles = new ArrayList<>();;
 
 	
 	
