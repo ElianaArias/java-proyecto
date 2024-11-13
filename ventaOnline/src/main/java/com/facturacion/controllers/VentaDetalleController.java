@@ -48,7 +48,7 @@ public class VentaDetalleController {
     public ResponseEntity<VentaDetalle> createVentaDetalle(@RequestBody VentaDetalle ventaDetalle) {
         try {
             VentaDetalle createdVentaDetalle = ventaDetalleService.createVentaDetalle(ventaDetalle);
-            return ResponseEntity.status(HttpStatus.CREATED).body(createdVentaDetalle);
+            return ResponseEntity.ok(createdVentaDetalle);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

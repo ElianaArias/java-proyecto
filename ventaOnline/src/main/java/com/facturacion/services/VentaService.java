@@ -15,7 +15,7 @@ public class VentaService {
 
     @Autowired
     private VentaRepository ventaRepository;
-
+   
     
     public List<Venta> getAllVentas() {									    // Listar todas las ventas
         return ventaRepository.findAll();
@@ -55,5 +55,6 @@ public class VentaService {
             throw new IllegalArgumentException("Venta no encontrada");
         }
         ventaRepository.deleteById(id);
-    }
+    }   
+    
 }

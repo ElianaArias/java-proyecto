@@ -1,6 +1,5 @@
 package com.facturacion.models;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class Venta {
 	@JoinColumn(name = "cliente_id", nullable = false)		//cliente_id es primary key en la tabla cliente
 	private Cliente cliente;
 	
-	private LocalDateTime createdAt = LocalDateTime.now(); //fecha de la venta
+	private String fechaVenta; //fecha de la venta
 	private double precioTotal;
 	
 	@OneToMany(												//one to many porque cada venta puede tener varios detalles de venta dentro, es decir varios productos
@@ -48,12 +47,16 @@ public class Venta {
 	}
 
 
-	public Venta(Cliente cliente, LocalDateTime createdAt, double precioTotal) {
+	
+	public Venta(Cliente cliente, String fechaVenta, double precioTotal) {
 		super();
 		this.cliente = cliente;
-		this.createdAt = createdAt;
+		this.fechaVenta = fechaVenta;
 		this.precioTotal = precioTotal;
 	}
+
+
+
 
 
 
@@ -74,12 +77,12 @@ public class Venta {
 		this.cliente = cliente;
 	}
 
-	public LocalDateTime getCreatedAt() {
-		return createdAt;
+	public String getfechaVenta() {
+		return fechaVenta;
 	}
 
-	public void setCreatedAt(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
+	public void setfechaVenta(String fechaVenta) {
+		this.fechaVenta = fechaVenta;
 	}
 
 	public double getPrecioTotal() {
@@ -102,7 +105,7 @@ public class Venta {
 	//toString
 	@Override
 	public String toString() {
-		return "Venta [id=" + id + ", cliente=" + cliente.getId() + ", createdAt=" + createdAt + ", precioTotal=" + precioTotal
+		return "Venta [id=" + id + ", cliente=" + cliente.getId() + ", fechaVenta=" + fechaVenta + ", precioTotal=" + precioTotal
 				+"]";//elimino ventaDetalle para que no se me haga un bucle infinito
 	}
 

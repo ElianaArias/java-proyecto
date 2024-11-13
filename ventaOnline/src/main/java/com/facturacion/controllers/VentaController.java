@@ -50,7 +50,7 @@ public class VentaController {
     public ResponseEntity<Venta> createVenta(@RequestBody Venta venta) {
         try {
             Venta createdVenta = ventaService.createVenta(venta);
-            return ResponseEntity.status(HttpStatus.CREATED).body(createdVenta);
+            return ResponseEntity.ok(createdVenta);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
@@ -81,4 +81,5 @@ public class VentaController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+    
 }
